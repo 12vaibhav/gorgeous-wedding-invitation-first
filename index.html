@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aarav & Ananya - We Are Getting Married</title>
+    <meta name="description" content="You are invited to the wedding of Aarav and Ananya. Save the date and join us in our celebration of love.">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+
+    <!-- 1. Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-bg-container">
+            <div class="hero-bg"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-vignette"></div>
+        <div class="particles" id="particles"></div>
+        
+        <div class="hero-content-wrapper">
+            <div class="hero-frame">
+                <div class="frame-line top"></div>
+                <div class="frame-line bottom"></div>
+                <div class="hero-content">
+                    <p class="subtitle fade-up">A Celebration of Love</p>
+                    <h1 class="title fade-up delay-1">Aarav <span class="ampersand">&amp;</span> Ananya</h1>
+                    <div class="hero-divider fade-up delay-2">
+                        <span class="diamond"></span>
+                    </div>
+                    <p class="date fade-up delay-2">November 24th, 2026</p>
+                    <p class="hero-venue fade-up delay-2">The Taj Mahal Palace, Mumbai</p>
+                    <a href="#rsvp" class="btn btn-hero fade-up delay-3">Save the Date</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span class="scroll-text">Explore Our Journey</span>
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Our Love Story -->
+    <section class="love-story" id="story">
+        <div class="love-story-overlay"></div>
+        <div class="container relative-z">
+            <div class="story-grid">
+                <div class="story-content-wrapper slide-in-left">
+                    <div class="story-card">
+                        <!-- Decorative Corners -->
+                        <div class="corner top-left"></div>
+                        <div class="corner top-right"></div>
+                        <div class="corner bottom-left"></div>
+                        <div class="corner bottom-right"></div>
+
+                        <h2 class="section-title">Our Love Story</h2>
+                        <div class="divider"></div>
+                        <p class="story-desc">What started as a chance meeting blossomed into a beautiful journey of love and togetherness. Over cups of chai, long drives, and endless conversations, we found our forever in each other. Our two families are uniting, and we couldn't be more thrilled to step into this new chapter surrounded by our loved ones.</p>
+                        <p class="signature">With love, Aarav & Ananya</p>
+                    </div>
+                </div>
+                <div class="story-image slide-in-right">
+                    <div class="image-frame-lux">
+                        <img src="images/story_couple.png" alt="Aarav and Ananya" class="lux-img">
+                        <div class="lux-border-1"></div>
+                        <div class="lux-border-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Wedding Details -->
+    <section class="wedding-details" id="details">
+        <div class="wedding-details-overlay"></div>
+        <div class="container relative-z">
+            <div class="details-card-wrapper fade-up">
+                <div class="details-card">
+                    <!-- Decorative Corner Ornaments -->
+                    <div class="floral-corner top-left"></div>
+                    <div class="floral-corner top-right"></div>
+                    <div class="floral-corner bottom-left"></div>
+                    <div class="floral-corner bottom-right"></div>
+
+                    <div class="card-inner-border"></div>
+                    <img src="images/Golden%20mandala%20pattern%20royal%20Indian.webp" alt="" class="card-watermark">
+                    
+                    <!-- Ornamental Section Header -->
+                    <div class="ornamental-header fade-up">
+                        <div class="header-ornament"></div>
+                        <div class="header-text">
+                            <p class="header-eyebrow">Join us as we step into forever</p>
+                            <h2 class="section-title">The Wedding</h2>
+                        </div>
+                        <div class="header-ornament"></div>
+                    </div>
+                    <div class="divider"></div>
+
+                    <div class="details-info">
+                        <div class="detail-item">
+                            <div class="icon-ring">
+                                <i class="fa-solid fa-calendar-days"></i>
+                            </div>
+                            <h3>Date</h3>
+                            <p>Tuesday, 24th November</p>
+                            <p class="sub-text">2026</p>
+                        </div>
+                        <div class="detail-item">
+                            <div class="icon-ring">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <h3>Muhurat</h3>
+                            <p>Evening Ceremony</p>
+                            <p class="sub-text">7:30 PM Onwards</p>
+                        </div>
+                        <div class="detail-item">
+                            <div class="icon-ring">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <h3>Venue</h3>
+                            <p>The Taj Mahal Palace</p>
+                            <p class="sub-text">Apollo Bunder, Mumbai</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Ceremony Schedule -->
+    <section class="schedule" id="schedule">
+        <div class="schedule-overlay"></div>
+        <div class="container relative-z">
+            <!-- Ornamental Section Header -->
+            <div class="ornamental-header fade-up">
+                <div class="header-ornament"></div>
+                <div class="header-text">
+                    <p class="header-eyebrow">The Celebration of Love</p>
+                    <h2 class="section-title">Ceremony Schedule</h2>
+                </div>
+                <div class="header-ornament"></div>
+            </div>
+            <div class="timeline">
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-icon"><i class="fa-solid fa-sun"></i></div>
+                    <div class="timeline-content glass-card">
+                        <div class="card-image-wrapper">
+                            <img src="images/gallery_3.png" alt="Haldi Ceremony" class="card-img">
+                            <div class="card-img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <h3>Haldi Ceremony</h3>
+                            <p class="time"><i class="fa-regular fa-clock"></i> Nov 23, 10:00 AM</p>
+                            <p class="venue"><i class="fa-solid fa-location-dot"></i> Poolside Gardens</p>
+                            <p class="desc">Join us for a vibrant morning of colors, laughter, and the traditional Haldi rituals to kickstart the festivities.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-icon"><i class="fa-solid fa-leaf"></i></div>
+                    <div class="timeline-content glass-card">
+                        <div class="card-image-wrapper">
+                            <img src="images/gallery_1.png" alt="Mehendi Ceremony" class="card-img">
+                            <div class="card-img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <h3>Mehendi</h3>
+                            <p class="time"><i class="fa-regular fa-clock"></i> Nov 23, 4:00 PM</p>
+                            <p class="venue"><i class="fa-solid fa-location-dot"></i> Crystal Ballroom</p>
+                            <p class="desc">An evening of intricate henna designs, music, and dance. Wear something comfortable and get ready to groove.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-icon"><i class="fa-solid fa-music"></i></div>
+                    <div class="timeline-content glass-card">
+                        <div class="card-image-wrapper">
+                            <img src="images/story_couple.png" alt="Sangeet Night" class="card-img">
+                            <div class="card-img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <h3>Sangeet Night</h3>
+                            <p class="time"><i class="fa-regular fa-clock"></i> Nov 23, 8:00 PM</p>
+                            <p class="venue"><i class="fa-solid fa-location-dot"></i> Grand Ballroom</p>
+                            <p class="desc">A glamorous night filled with choreographed performances, endless dancing, and unforgettable memories.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-icon"><i class="fa-solid fa-ring"></i></div>
+                    <div class="timeline-content glass-card">
+                        <div class="card-image-wrapper">
+                            <img src="images/hero_couple.png" alt="Wedding Ceremony" class="card-img">
+                            <div class="card-img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <h3>Wedding Ceremony</h3>
+                            <p class="time"><i class="fa-regular fa-clock"></i> Nov 24, 7:30 PM</p>
+                            <p class="venue"><i class="fa-solid fa-location-dot"></i> The Heritage Courtyard</p>
+                            <p class="desc">The sacred union under the stars. Join us as we take our vows and step into our happily ever after.</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Gallery -->
+    <section class="gallery" id="gallery">
+        <div class="gallery-overlay"></div>
+        <div class="container relative-z">
+            <!-- Ornamental Section Header -->
+            <div class="ornamental-header fade-up">
+                <div class="header-ornament"></div>
+                <div class="header-text">
+                    <p class="header-eyebrow">A Glimpse Into Our World</p>
+                    <h2 class="section-title">Memories</h2>
+                </div>
+                <div class="header-ornament"></div>
+            </div>
+
+            <!-- Editorial Magazine Grid -->
+            <div class="editorial-grid">
+                <!-- Hero image - spans 2 rows -->
+                <div class="grid-item hero-shot reveal" data-caption="Our Love Story">
+                    <img src="images/hero_couple.png" alt="Aarav & Ananya">
+                    <div class="caption-overlay">
+                        <span class="caption-eyebrow">❤ Featured</span>
+                        <p class="caption-title">Our Love Story</p>
+                    </div>
+                </div>
+                <!-- Portrait images -->
+                <div class="grid-item reveal" data-caption="Bride Portrait">
+                    <img src="images/gallery_2.png" alt="Bride Portrait">
+                    <div class="caption-overlay">
+                        <span class="caption-eyebrow">✦ Bridal</span>
+                        <p class="caption-title">Radiance</p>
+                    </div>
+                </div>
+                <div class="grid-item reveal" data-caption="Candid Moments">
+                    <img src="images/story_couple.png" alt="Candid Couple">
+                    <div class="caption-overlay">
+                        <span class="caption-eyebrow">✦ Candid</span>
+                        <p class="caption-title">Together Forever</p>
+                    </div>
+                </div>
+                <!-- Wide landscape images -->
+                <div class="grid-item wide-shot reveal" data-caption="Mehendi Ceremony">
+                    <img src="images/gallery_1.png" alt="Mehendi Hands">
+                    <div class="caption-overlay">
+                        <span class="caption-eyebrow">✦ Mehendi</span>
+                        <p class="caption-title">Stories on Skin</p>
+                    </div>
+                </div>
+                <div class="grid-item wide-shot reveal" data-caption="Groom's Day">
+                    <img src="images/gallery_3.png" alt="Groom Portrait">
+                    <div class="caption-overlay">
+                        <span class="caption-eyebrow">✦ Grrom</span>
+                        <p class="caption-title">The Man of the Hour</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Venue Map -->
+    <section class="venue-map" id="map">
+        <div class="venue-overlay"></div>
+        <div class="container relative-z">
+            <!-- Ornamental Section Header -->
+            <div class="ornamental-header fade-up">
+                <div class="header-ornament"></div>
+                <div class="header-text">
+                    <p class="header-eyebrow">You Are Cordially Invited To</p>
+                    <h2 class="section-title">How to Reach Us</h2>
+                </div>
+                <div class="header-ornament"></div>
+            </div>
+            <div class="venue-grid">
+                <!-- Left: Venue Info Panel -->
+                <div class="venue-info slide-in-left">
+                    <div class="venue-name-card">
+                        <div class="venue-pin-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h3 class="venue-title">The Taj Mahal Palace</h3>
+                            <p class="venue-address">Apollo Bunder, Colaba,<br>Mumbai, Maharashtra 400001</p>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <p class="venue-description">One of Mumbai's most iconic landmarks, The Taj Mahal Palace stands majestically by the Arabian Sea. Join us in this grand heritage venue as we celebrate the most beautiful chapter of our lives.</p>
+                    <div class="transport-cards">
+                        <div class="transport-item">
+                            <div class="transport-icon"><i class="fa-solid fa-plane-departure"></i></div>
+                            <div>
+                                <h4>By Air</h4>
+                                <p>30 min from Chhatrapati Shivaji Maharaj International Airport</p>
+                            </div>
+                        </div>
+                        <div class="transport-item">
+                            <div class="transport-icon"><i class="fa-solid fa-train"></i></div>
+                            <div>
+                                <h4>By Train</h4>
+                                <p>10 min from CST Railway Station, Colaba</p>
+                            </div>
+                        </div>
+                        <div class="transport-item">
+                            <div class="transport-icon"><i class="fa-solid fa-car"></i></div>
+                            <div>
+                                <h4>By Car</h4>
+                                <p>Valet parking available. Enter via Apollo Bunder Gate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right: Styled Map -->
+                <div class="map-frame-wrapper slide-in-right">
+                    <div class="map-frame">
+                        <div class="map-frame-corner top-left"></div>
+                        <div class="map-frame-corner top-right"></div>
+                        <div class="map-frame-corner bottom-left"></div>
+                        <div class="map-frame-corner bottom-right"></div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.218556612767!2d72.83070497554909!3d18.92172908225219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7d1c73a0d5cad%3A0xc70a25a7209c733c!2sThe%20Taj%20Mahal%20Palace%2C%20Mumbai!5e0!3m2!1sen!2sin!4v1714856024985!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <a href="https://maps.google.com/?q=The+Taj+Mahal+Palace+Mumbai" target="_blank" class="btn btn-gold" style="display:inline-block; margin-top:1.5rem; text-align:center;">
+                        <i class="fa-solid fa-diamond-turn-right"></i>&nbsp; Get Directions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. RSVP -->
+    <section class="rsvp" id="rsvp">
+        <div class="rsvp-overlay"></div>
+        <img src="images/Golden%20mandala%20pattern%20royal%20Indian.webp" alt="" class="rsvp-mandala">
+        <div class="container relative-z">
+            <div class="rsvp-card fade-up">
+                <div class="rsvp-card-inner"></div>
+                
+                <!-- Decorative Floral Corners -->
+                <div class="floral-corner top-left"></div>
+                <div class="floral-corner top-right"></div>
+                <div class="floral-corner bottom-left"></div>
+                <div class="floral-corner bottom-right"></div>
+
+                <h2 class="section-title text-center">Confirm Your Presence</h2>
+                <p class="text-center rsvp-desc">Kindly RSVP by November 1st, 2026</p>
+                
+                <form class="rsvp-form" id="rsvpForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Number of Guests</label>
+                        <select id="guests" name="guests">
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4+ Guests</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="attendance">Will you attend?</label>
+                        <select id="attendance" name="attendance">
+                            <option value="yes">Joyfully Accept</option>
+                            <option value="no">Regretfully Decline</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-full">Send RSVP</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <h2 class="footer-title">Aarav & Ananya</h2>
+            <p>#AaravKiAnanya</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox for Gallery -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
