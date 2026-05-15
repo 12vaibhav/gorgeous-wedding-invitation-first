@@ -44,6 +44,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -70,6 +72,12 @@ a {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  width: 100%;
+}
+
+section {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .text-center {
@@ -418,18 +426,28 @@ h4 {
 }
 
 /* Scroll Indicator */
-.scroll-indicator {
+.scroll-indicator-link {
   position: absolute;
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 10;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.scroll-indicator {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  z-index: 10;
   opacity: 0.8;
   transition: var(--transition);
+}
+
+.scroll-indicator-link:hover .scroll-indicator {
+  opacity: 1;
+  transform: translateY(-5px);
 }
 
 .scroll-text {
@@ -504,6 +522,7 @@ h4 {
   opacity: 0;
   transform: translateX(-50px);
   transition: all 0.8s ease;
+  /* Note: overridden to vertical-only on mobile to prevent horizontal overflow */
 }
 
 .slide-in-left.active {
@@ -574,7 +593,7 @@ h4 {
 
 /* 2. Love Story */
 .love-story {
-  padding: 10rem 0;
+  padding: 6rem 0;
   position: relative;
   background-image: url('images/Indian%20palace%20balcony%20overlooking.webp');
   background-size: cover;
@@ -606,7 +625,7 @@ h4 {
 
 .story-card {
   position: relative;
-  padding: 4rem 3rem;
+  padding: 3rem 2.5rem;
   background-image: url('images/Indian%20wedding%20motifs%20parchment.webp');
   background-size: cover;
   background-position: center;
@@ -768,9 +787,195 @@ h4 {
   border-top: none;
 }
 
+/* 2.5 Business Legacy */
+.business-legacy {
+  padding: 5rem 0;
+  position: relative;
+  background-image: url('images/Indian%20palace%20balcony%20overlooking.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.business-legacy .legacy-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(44, 24, 26, 0.7);
+  z-index: 1;
+}
+
+[data-theme="dark"] .business-legacy .legacy-overlay {
+  background: rgba(18, 9, 11, 0.85);
+}
+
+.legacy-cards-container {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+@media (max-width: 768px) {
+  .legacy-cards-container {
+    flex-direction: column;
+  }
+}
+
+.legacy-card {
+  flex: 1;
+  position: relative;
+  background-color: #fffdf5;
+  background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+  padding: 2.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  z-index: 2;
+}
+
+[data-theme="dark"] .legacy-card {
+  background-color: #1a1510;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.legacy-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+[data-theme="dark"] .legacy-card:hover {
+  box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+}
+
+.eternal-knot-border {
+  position: absolute;
+  top: 15px; left: 15px; right: 15px; bottom: 15px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 4px;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+.eternal-knot-border::before,
+.eternal-knot-border::after {
+  content: '';
+  position: absolute;
+  width: 20px; height: 20px;
+  border: 1px solid var(--gold);
+  opacity: 0.5;
+  transition: all 0.5s ease;
+}
+
+.eternal-knot-border::before {
+  top: -10px; left: -10px;
+  transform: rotate(45deg);
+}
+.eternal-knot-border::after {
+  bottom: -10px; right: -10px;
+  transform: rotate(45deg);
+}
+
+.legacy-card:hover .eternal-knot-border {
+  border-color: var(--gold);
+  box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.legacy-card:hover .eternal-knot-border::before,
+.legacy-card:hover .eternal-knot-border::after {
+  opacity: 1;
+  transform: rotate(135deg);
+}
+
+.legacy-card-content {
+  position: relative;
+  z-index: 3;
+}
+
+.family-side {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.85rem;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.parents-name {
+  font-family: var(--font-script);
+  font-size: 2.5rem;
+  color: var(--maroon);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+[data-theme="dark"] .parents-name {
+  color: var(--ivory);
+}
+
+.legacy-divider {
+  color: var(--gold);
+  font-size: 1.2rem;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.legacy-divider::before,
+.legacy-divider::after {
+  content: '';
+  height: 1px;
+  width: 50px;
+  background: var(--gold);
+  margin: 0 15px;
+  opacity: 0.5;
+}
+
+.business-role {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+[data-theme="dark"] .business-role {
+  color: #ccc;
+}
+
+.business-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.business-list li {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--maroon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+[data-theme="dark"] .business-list li {
+  color: var(--gold-light);
+}
+
+.business-list li i {
+  font-size: 0.8rem;
+}
+
 /* 3. Wedding Details */
 .wedding-details {
-  padding: 10rem 0;
+  padding: 6rem 0;
   position: relative;
   background-image: url('images/Indian%20palace%20illuminated%20at%20night.webp');
   background-size: cover;
@@ -793,10 +998,13 @@ h4 {
 }
 
 .details-card-wrapper {
-  max-width: 1000px;
+  max-width: 850px;
+  width: 100%;
   margin: 0 auto;
   position: relative;
   z-index: 2;
+  padding: 0 2rem;
+  box-sizing: border-box;
 }
 
 .details-card {
@@ -807,7 +1015,7 @@ h4 {
     url('https://www.transparenttextures.com/patterns/cream-paper.png');
   /* Subtle paper texture */
   position: relative;
-  padding: 6rem 4rem;
+  padding: 4rem 3rem;
   /* Balanced rectangular padding */
   border-radius: 20px;
   /* Rectangular shape with soft corners */
@@ -872,10 +1080,10 @@ h4 {
 /* Floral Corner Ornaments */
 .floral-corner {
   position: absolute;
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   background-image: url('images/Golden%20floral%20corner%20ornaments.webp');
-  background-size: contain;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   z-index: 3;
   opacity: 0.8;
@@ -883,27 +1091,27 @@ h4 {
 }
 
 .floral-corner.top-left {
-  top: 30px;
-  left: 0px;
-  transform: rotate(90deg);
+  top: 0;
+  left: 0;
+  transform: scaleY(-1);
 }
 
 .floral-corner.top-right {
-  top: 0px;
-  right: 30px;
-  transform: rotate(180deg);
+  top: 0;
+  right: 0;
+  transform: scale(-1, -1);
 }
 
 .floral-corner.bottom-left {
-  bottom: 0px;
-  left: 30px;
-  transform: rotate(0deg);
+  bottom: 0;
+  left: 0;
+  transform: scale(1);
 }
 
 .floral-corner.bottom-right {
-  bottom: 30px;
-  right: 0px;
-  transform: rotate(270deg);
+  bottom: 0;
+  right: 0;
+  transform: scaleX(-1);
 }
 
 .card-watermark {
@@ -979,8 +1187,8 @@ h4 {
 .details-info {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  margin-top: 3rem;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .detail-item {
@@ -1022,11 +1230,13 @@ h4 {
 }
 
 .wedding-details .ornamental-header .section-title {
+  font-size: 2rem;
   color: var(--maroon) !important;
   text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8);
 }
 
 .wedding-details .header-eyebrow {
+  font-size: 1.5rem;
   color: var(--gold) !important;
 }
 
@@ -1071,7 +1281,7 @@ h4 {
 
 /* 4. Ceremony Schedule */
 .schedule {
-  padding: 8rem 0;
+  padding: 5rem 0;
   position: relative;
   background-image: url('images/mandala_pattern.png');
   background-size: cover;
@@ -1121,7 +1331,7 @@ h4 {
 }
 
 .timeline-item {
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
   position: relative;
   width: 50%;
 }
@@ -1242,7 +1452,7 @@ h4 {
 
 /* 5. Gallery - Cinematic Editorial */
 .gallery {
-  padding: 10rem 0;
+  padding: 6rem 0;
   position: relative;
   background-image: url('images/Indian%20palace%20balcony%20overlooking.webp');
   background-size: cover;
@@ -1366,7 +1576,7 @@ h4 {
   object-fit: cover;
   display: block;
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  min-height: 280px;
+  min-height: 220px;
 }
 
 .grid-item:hover img {
@@ -1461,7 +1671,7 @@ h4 {
 
 /* 6. Venue Map - Premium */
 .venue-map {
-  padding: 10rem 0;
+  padding: 6rem 0;
   position: relative;
   background-image: url('images/Indian%20palace%20illuminated%20at%20night.webp');
   background-size: cover;
@@ -1619,7 +1829,7 @@ h4 {
 .map-frame {
   position: relative;
   width: 100%;
-  height: 450px;
+  height: 350px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
@@ -1671,7 +1881,7 @@ h4 {
 
 /* 7. RSVP - Enhanced & Gorgeous */
 .rsvp {
-  padding: 12rem 0;
+  padding: 8rem 0;
   position: relative;
   background-image: url('images/Indian%20wedding%20backdrop.webp');
   background-size: cover;
@@ -1701,7 +1911,7 @@ h4 {
 }
 
 .rsvp-card {
-  max-width: 700px;
+  max-width: 850px;
   margin: 0 auto;
   background-image: url('images/texture%20of%20ivory%20Banarasi%20silk.webp');
   background-size: cover;
@@ -1710,7 +1920,7 @@ h4 {
   background-blend-mode: overlay;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 6rem 4rem;
+  padding: 2.5rem 4rem;
   border-radius: 24px;
   border: 1px solid rgba(212, 175, 55, 0.5);
   box-shadow:
@@ -1751,8 +1961,8 @@ h4 {
 
 /* Decorative Ornaments for RSVP Card */
 .rsvp-card .floral-corner {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   opacity: 0.9;
 }
 
@@ -1778,8 +1988,8 @@ h4 {
 
 .rsvp-card .section-title {
   color: var(--gold) !important;
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -1789,22 +1999,29 @@ h4 {
 }
 
 .rsvp-desc {
-  color: var(--gold-light);
+  color: var(--maroon);
   font-family: var(--font-serif);
-  font-size: 1.2rem;
-  margin-bottom: 4rem;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
   letter-spacing: 1px;
   font-style: normal;
 }
 
+[data-theme="dark"] .rsvp-desc {
+  color: var(--gold-light);
+}
+
 /* Form Group Enhancements */
 .rsvp-form {
-  max-width: 500px;
+  max-width: 100%;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 3rem;
 }
 
 .form-group {
-  margin-bottom: 2.5rem;
+  margin-bottom: 0.5rem;
   position: relative;
   text-align: left;
 }
@@ -1818,6 +2035,11 @@ h4 {
   margin-bottom: 0.8rem;
   display: block;
   font-weight: 600;
+}
+
+.rsvp-form .btn-full {
+  grid-column: span 2;
+  margin-top: 1rem;
 }
 
 [data-theme="dark"] .form-group label {
@@ -1943,18 +2165,30 @@ h4 {
   .details-info {
     gap: 1.5rem;
   }
+
+  .ornamental-header {
+    gap: 1.5rem;
+  }
 }
 
 /* Tablets (Portrait) */
 @media (max-width: 992px) {
-  section {
-    padding: 6rem 0;
+  /* Disable fixed backgrounds on tablets/mobile (iOS bug) */
+  .love-story,
+  .wedding-details,
+  .schedule,
+  .gallery,
+  .venue-map,
+  .rsvp,
+  .business-legacy {
+    background-attachment: scroll;
   }
 
   .hero-frame {
     padding: 3rem 2rem;
   }
 
+  /* Love Story */
   .story-grid {
     grid-template-columns: 1fr;
     text-align: center;
@@ -1966,15 +2200,17 @@ h4 {
 
   .story-image {
     order: 1;
-    max-width: 500px;
+    max-width: 420px;
     margin: 0 auto;
   }
 
+  /* Wedding Details */
   .details-info {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
 
+  /* Gallery */
   .editorial-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -1983,69 +2219,290 @@ h4 {
     grid-column: span 2;
   }
 
+  /* Venue */
   .venue-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
 
   .map-frame {
-    height: 350px;
+    height: 320px;
+  }
+
+  /* Business Legacy */
+  .legacy-cards-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Ornamental Headers */
+  .ornamental-header {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .header-ornament {
+    max-width: 120px;
+    width: 100%;
+  }
+
+  /* RSVP Form: revert to single column */
+  .rsvp-form {
+    grid-template-columns: 1fr;
+  }
+
+  .rsvp-form .btn-full {
+    grid-column: span 1;
+  }
+
+  .rsvp-card {
+    max-width: 95%;
   }
 }
 
 /* Mobile Devices */
 @media (max-width: 768px) {
-  .section-title {
-    font-size: 2.2rem;
-    margin-bottom: 2.5rem;
+  /* ── Global Overflow Guard ── */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
-  /* Hero Mobile */
+  /* Convert horizontal slide-in animations to vertical on mobile
+     to prevent off-screen translateX from causing horizontal scroll */
+  .slide-in-left,
+  .slide-in-right {
+    transform: translateY(30px);
+  }
+
+  .slide-in-left.active,
+  .slide-in-right.active {
+    transform: translateY(0);
+  }
+
+  /* Constrain any oversized wrappers */
+  .details-card-wrapper {
+    padding: 0 1.2rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Ensure hero stays within viewport */
+  .hero-content-wrapper {
+    width: 94%;
+    max-width: 100%;
+  }
+
   .hero-frame {
-    padding: 2.5rem 1.5rem;
+    box-sizing: border-box;
     width: 100%;
   }
 
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .container {
+    padding: 0 1.2rem;
+  }
+
+  /* ── Hero ── */
+  .hero-frame {
+    padding: 2rem 1.2rem;
+    width: 95%;
+  }
+
   .frame-line {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .hero-content .subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 5px;
   }
 
   .hero-content .title {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
   }
 
   .hero-content .ampersand {
-    font-size: 4.5rem;
+    font-size: 4rem;
   }
 
   .hero-content .date {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+  }
+
+  .hero-venue {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
   }
 
   .hero-divider {
-    margin: 1.5rem 0;
+    margin: 1.2rem 0;
   }
 
   .hero-divider::before,
   .hero-divider::after {
-    width: 50px;
+    width: 40px;
   }
 
-  .scroll-indicator {
-    bottom: 20px;
+  .btn-hero {
+    padding: 1rem 2.5rem;
+    font-size: 0.85rem;
   }
 
-  /* Timeline Mobile */
+  .scroll-indicator-link {
+    bottom: 15px;
+  }
+
+  /* ── Love Story ── */
+  .love-story {
+    padding: 5rem 0;
+  }
+
+  .story-card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .story-desc {
+    font-size: 1rem;
+  }
+
+  .signature {
+    font-size: 2.2rem;
+    margin-top: 2rem;
+  }
+
+  .story-image {
+    max-width: 320px;
+  }
+
+  .lux-img {
+    border-radius: 80px 80px 8px 8px;
+  }
+
+  /* ── Business Legacy ── */
+  .business-legacy {
+    padding: 4rem 0;
+  }
+
+  .legacy-cards-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .legacy-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .parents-name {
+    font-size: 2rem;
+  }
+
+  .family-side {
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+  }
+
+  .business-list li {
+    font-size: 1rem;
+  }
+
+  /* ── Wedding Details ── */
+  .wedding-details {
+    padding: 4rem 0;
+  }
+
+  .details-card-wrapper {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .details-card {
+    padding: 3rem 1.5rem;
+    border-radius: 0;
+    box-shadow:
+      0 8px 30px rgba(0, 0, 0, 0.4),
+      inset 0 0 0 1px rgba(212, 175, 55, 0.4);
+    margin: 0;
+    width: 100%;
+  }
+
+  .details-card:hover {
+    transform: none;
+  }
+
+  .card-inner-border {
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  /* Dark mode rectangular card shadow on mobile */
+  [data-theme="dark"] .details-card {
+    box-shadow:
+      0 8px 30px rgba(0, 0, 0, 0.7),
+      inset 0 0 0 1px rgba(212, 175, 55, 0.3);
+  }
+
+  /* Remove section side-padding so card is truly edge-to-edge */
+  .wedding-details {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .floral-corner {
+    width: 70px;
+    height: 70px;
+  }
+
+  .card-watermark {
+    width: 90%;
+  }
+
+  .details-info {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .icon-ring {
+    width: 65px;
+    height: 65px;
+  }
+
+  .detail-item h3 {
+    font-size: 1.2rem;
+  }
+
+  .wedding-details .ornamental-header .section-title {
+    font-size: 1.8rem;
+  }
+
+  /* ── Ceremony Schedule ── */
+  .schedule {
+    padding: 4rem 0;
+  }
+
   .timeline::before {
     left: 20px;
   }
 
   .timeline-item {
     width: 100%;
-    padding-left: 50px !important;
+    padding-left: 55px !important;
     padding-right: 0 !important;
     text-align: left !important;
+    margin-bottom: 2rem;
   }
 
   .timeline-icon {
@@ -2053,7 +2510,8 @@ h4 {
     right: auto !important;
     width: 40px;
     height: 40px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    top: 20px;
   }
 
   .timeline-item:nth-child(even) {
@@ -2065,64 +2523,275 @@ h4 {
     justify-content: flex-start !important;
   }
 
-  /* RSVP Mobile */
+  .card-image-wrapper {
+    height: 160px;
+  }
+
+  .card-body {
+    padding: 1.2rem;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.4rem;
+  }
+
+  /* ── Memories / Gallery ── */
+  .gallery {
+    padding: 4rem 0;
+  }
+
+  .editorial-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+
+  .grid-item.hero-shot {
+    grid-column: span 2;
+  }
+
+  .grid-item img {
+    min-height: 180px;
+  }
+
+  /* ── Venue Map ── */
+  .venue-map {
+    padding: 4rem 0;
+  }
+
+  .venue-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .venue-name-card {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .venue-pin-icon {
+    align-self: center;
+  }
+
+  .venue-title {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .venue-address {
+    text-align: center;
+  }
+
+  .venue-description {
+    border-left: none;
+    border-top: 2px solid var(--gold);
+    padding-left: 0;
+    padding-top: 1rem;
+    text-align: center;
+  }
+
+  .map-frame {
+    height: 280px;
+  }
+
+  .transport-cards {
+    gap: 0.8rem;
+  }
+
+  /* ── RSVP ── */
+  .rsvp {
+    padding: 4rem 0;
+  }
+
   .rsvp-card {
-    padding: 4rem 1.5rem 3rem;
-    border-radius: 15px;
+    padding: 2.5rem 1.5rem;
+    border-radius: 12px;
+    max-width: 95%;
+  }
+
+  .rsvp-form {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .rsvp-form .btn-full {
+    grid-column: span 1;
+    margin-top: 0.5rem;
   }
 
   .rsvp-card .floral-corner {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
   }
 
-  .rsvp-card .floral-corner.top-left { left: -15px; top: -5px; }
-  .rsvp-card .floral-corner.top-right { right: -15px; top: -15px; }
-  .rsvp-card .floral-corner.bottom-left { left: -15px; bottom: -15px; }
-  .rsvp-card .floral-corner.bottom-right { right: -15px; bottom: -5px; }
+  .rsvp-card .floral-corner.top-left { left: -10px; top: -5px; }
+  .rsvp-card .floral-corner.top-right { right: -10px; top: -10px; }
+  .rsvp-card .floral-corner.bottom-left { left: -10px; bottom: -10px; }
+  .rsvp-card .floral-corner.bottom-right { right: -10px; bottom: -5px; }
 
   .rsvp-card .section-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
   }
 
   .rsvp-desc {
-    font-size: 1.1rem;
-    margin-bottom: 2.5rem;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .form-group {
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    padding: 3rem 0;
+  }
+
+  .footer-title {
+    font-size: 2.5rem;
+  }
+
+  /* ── Theme Toggle ── */
+  .theme-toggle {
+    bottom: 20px;
+    right: 15px;
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+
+  /* ── Ornamental Headers ── */
+  .ornamental-header {
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .header-ornament {
+    max-width: 80px;
+  }
+
+  .header-eyebrow {
+    font-size: 1.4rem;
+  }
+
+  .ornamental-header .section-title {
+    font-size: 2rem;
   }
 }
 
 /* Small Mobile Devices */
 @media (max-width: 480px) {
+  /* ── Hero ── */
   .hero-content .title {
-    font-size: 2.8rem;
+    font-size: 2.6rem;
   }
 
   .hero-content .ampersand {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
   }
 
   .hero-content .subtitle {
-    letter-spacing: 4px;
-    font-size: 1rem;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
   }
 
+  .hero-content .date {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+
+  .btn-hero {
+    padding: 0.9rem 2rem;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+  }
+
+  /* ── Love Story ── */
+  .story-image {
+    max-width: 260px;
+  }
+
+  .signature {
+    font-size: 1.9rem;
+  }
+
+  /* ── Business Legacy ── */
+  .parents-name {
+    font-size: 1.7rem;
+  }
+
+  .legacy-divider::before,
+  .legacy-divider::after {
+    width: 30px;
+  }
+
+  /* ── Gallery ── */
   .editorial-grid {
     grid-template-columns: 1fr;
+    gap: 0.6rem;
   }
 
   .grid-item.hero-shot {
     grid-column: span 1;
   }
 
-  .signature {
-    font-size: 2.2rem;
+  .grid-item img {
+    min-height: 220px;
   }
 
+  /* ── Wedding Details ── */
+  .details-card {
+    padding: 2.5rem 1rem;
+  }
+
+  .floral-corner {
+    width: 55px;
+    height: 55px;
+  }
+
+  .details-card .divider {
+    width: 80%;
+  }
+
+  /* ── RSVP ── */
+  .rsvp-card {
+    padding: 2rem 1.2rem;
+  }
+
+  .rsvp-card .section-title {
+    font-size: 1.8rem;
+  }
+
+  .rsvp-card .floral-corner {
+    width: 65px;
+    height: 65px;
+  }
+
+  /* ── Transport ── */
+  .transport-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .transport-icon {
+    align-self: center;
+  }
+
+  /* ── Footer ── */
   .footer-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
+  }
+
+  /* ── Ornamental Headers ── */
+  .header-eyebrow {
+    font-size: 1.2rem;
+  }
+
+  .ornamental-header .section-title {
+    font-size: 1.7rem;
   }
 }
